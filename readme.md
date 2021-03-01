@@ -3,9 +3,9 @@
 
 ### Atividades 
 
- - <input type="checkbox" checked> Relatório 01 
+ - <input type="checkbox"> Relatório 01 ✔
 
- - <input type="checkbox" checked> Relatório 02
+ - <input type="checkbox"> Relatório 02 ✔
 
  - <input type="checkbox"> Relatório 03 
 
@@ -16,7 +16,6 @@
 
 ### Alunos
 <ul>
-
   <li>
    Diego Basilio Arruda
   </li>
@@ -26,6 +25,5 @@
   <li>
     Bernardo Temponi
   </li>
-   
 <ul>
 
