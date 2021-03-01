@@ -1,7 +1,10 @@
 # AC2 - Arquitetura de Computadores II
-  
 
-### Atividades 
+<div style = "text-align: center">
+ <img src="https://media.giphy.com/media/3o7TKx997XonqmAGU8/giphy.gif" width = 250px>
+</div>
+
+# 📄  Atividades 
 
  - <input type="checkbox"> Relatório 01 ✔
 
@@ -13,8 +16,7 @@
 
 
    
-
-### Alunos
+## 👨🏼‍🎓 Alunos
 <ul>
   <li>
    Diego Basilio Arruda
@@ -26,4 +28,6 @@
     Bernardo Temponi
   </li>
 <ul>
+
+
 
