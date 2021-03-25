@@ -1,10 +1,15 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.RandomAccess;
+
+import jdk.jfr.Experimental;
 
 class Main {    
 
@@ -12,7 +17,8 @@ class Main {
         return (codeLine.charAt(1) == '=' ? true : false);
     }
 
-    public static boolean convertToHex(List<String> codeLines) {
+    public static boolean convertToHex(List<String> codeLines) throws Exception {
+        RandomAccessFile result = new RandomAccessFile("./data/result.db", "rw");
         // Variaveis
         String X = "";
         String Y = "";
@@ -84,8 +90,11 @@ class Main {
                     expression += Mnemonico.ZERO_LOGICO.getCodHex();
 
                 }
-
-                // Write expression in arq
+                
+                expression += "\n"; 
+                result.write(expression.getBytes());
+                result.seek(result.length());
+                
             }
 
         }
@@ -93,9 +102,9 @@ class Main {
         return false;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("data/teste.ula"));
+            BufferedReader br = new BufferedReader(new FileReader("./data/ula.db"));
         
             List<String> lines = new ArrayList<String>();
 
