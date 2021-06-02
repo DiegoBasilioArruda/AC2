@@ -62,4 +62,8 @@
   <li>
     Bernardo Temponi
   </li>
+  <li>
+    Diogo Araujo
+  </li>
+  
 </ul>
