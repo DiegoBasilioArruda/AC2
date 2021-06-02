@@ -40,6 +40,14 @@
       </li>
     </ul>
   </li>
+  <li>
+    <input type="checkbox"> Relatório 08</a> ❌
+    <ul>
+      <li>
+        <a href=https://docs.google.com/document/d/1vKYYJ9Eg5wwiVBf1xabGyJnYizbQroTjMPw_MqWkAFE/edit?usp=sharing> Link DOCS</a>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 ## 👨🏼‍🎓 Alunos
