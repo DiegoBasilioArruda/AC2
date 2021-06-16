@@ -8,16 +8,15 @@ addi $sp,$sp -8             # adicionando na pilha
 sw $t0, 8($sp)              # guardando $t0 na pilha
 sw $a0, 4($sp)              # guardando $a0 na pilha
 
-div $t0, $a0, 0x2
-mfhi $t0                    # resto da divisao
 
-beq $t0, $0, IsPar
-jal Impar
+slt $t1, $0,$a0             # Se 0 < x
+beq $t1, $0 , Else          # nao => va para Else
+jal MaiorZero               # chamando funcao Se x > 0
 
 j Continua
 
-IsPar:
-jal Par
+Else:
+jal MenorIgualZero          # chamando funcao Se x <= 0
 
 Continua:
 
@@ -58,64 +57,40 @@ FimLoop:
     jr $ra                  # retorna 
 
 # a0 => x
-Par:
-    addi $sp,$sp,-16        # adicionando na pilha
-    sw $a3, 16($sp)         # guardando $a3 na pilha
-    sw $a2, 12($sp)         # guardando $a2 na pilha
+MaiorZero:
+    addi $sp,$sp,-8         # adicionando na pilha
     sw $ra, 8($sp)          # guardando $ra na pilha
-    sw $a1, 4($sp)          # guardando $a1 na pilha
-
-    addi $a1, $0,4          # a1 => 4
-    jal Elevar              # v0 => x^4
-
-    add $a2,$v0,$0          # a2 => x^4
+    sw $a1, 4($sp)          # guardando $a1 na pilha => expoente
 
     addi $a1, $0,3          # a1 => 3
+
+    #TODO CORPO
     jal Elevar              # v0 => x^3
 
-    add $a2,$a2,$v0         # a2 => x^4 + x^3
+    addi $v0,$v0,1          # v0 => x^3 + 1
 
-    addi $a1, $0,2          # a1 => 2
-    jal Elevar              # v0 => x^2
-
-    addi $a3,$0,-2          # a3 => -2
-    mult $v0,$a3            # -2x^2
-
-    mflo $a3                # t1 => -2x^2
-
-    add $v0,$a2,$a3         # v0 => x^4 + x^3 -2x^2
-
-    lw $a3, 16($sp)         # reatribuindo o valor de $a3
-    lw $a2, 12($sp)         # reatribuindo o valor de $a2
     lw $ra, 8($sp)          # reatribuindo o valor de $ra
     lw $a1, 4($sp)          # reatribuindo o valor de $a1
-    addi $sp,$sp, 16        # voltar na pilha
+    addi $sp,$sp, 8         # voltar na pilha
 
     jr $ra                  # retorna
 
 # a0 => x
-Impar:
-    addi $sp,$sp,-12        # adicionando na pilha
-    sw $a2, 12($sp)         # guardando $a2 na pilha
+MenorIgualZero:
+    addi $sp,$sp,-8         # adicionando na pilha
     sw $ra, 8($sp)          # guardando $ra na pilha
-    sw $a1, 4($sp)          # guardando $a1 na pilha
+    sw $a1, 4($sp)          # guardando $a1 na pilha => expoente
 
-    addi $a1, $0,5          # a1 => 5
-    jal Elevar              # v0 => x^5
+    addi $a1, $0,4          # a1 => 4
 
-    add $a2,$v0,$0          # a2 => x^5
+    #TODO CORPO
+    jal Elevar              # v0 => x^4
 
-    addi $a1, $0,3          # a1 => 3
-    jal Elevar              # v0 => x^3
+    addi $v0,$v0,-1         # v0 => x^4 - 1
 
-    sub $a2,$a2,$v0         # a2 => x^5 - x^3
-
-    addi $v0,$a2,1         # v0 => x^5 - x^3 + 1
-
-    lw $a2, 12($sp)         # reatribuindo o valor de $a2
     lw $ra, 8($sp)          # reatribuindo o valor de $ra
     lw $a1, 4($sp)          # reatribuindo o valor de $a1
-    addi $sp,$sp, 12        # voltar na pilha
+    addi $sp,$sp, 8         # voltar na pilha
 
     jr $ra                  # retorna
 
