@@ -1,7 +1,5 @@
-# Programa 13:
-# Escreva um programa que leia um valor A da memória,  
-# identifique  se o número é negativo ou não e encontre o seu módulo.
-# O valor deverá ser reescrito sobre A. 
+# Escreva um programa que leia um valor A da memória, identifique se o número é 
+# negativo ou não e encontre o seu módulo. O valor deverá ser reescrito sobre A.
 
 # $t0 endereco base
 # $t1 A
@@ -13,7 +11,7 @@
 .globl main
 main:
     addi $t0, $t0, 0x1001
-    sll $t0,$t0, 16     #endereco base
+    sll $t0,$t0, 16             # endereco base
 
     lw $t1, 0x0 ($t0)           # t1 = A
 
