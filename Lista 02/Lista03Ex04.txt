@@ -1,0 +1,5 @@
+IF => Instruction Fetch (ir na memoria buscar a instrucao que quero executar)
+ID => Instruction Decode ( unidade de controle decodifica para ver o que fazer mas ao mesmo tempo vejo quais os registradores estou precisando e coloco os valores la assim como se eu tenho numeros faco a extensao do sinal)
+EX => Execute (Soma, acessar memoria faz o calculo do endereco)
+MEM => Memory (SW, LW)
+WB => Write Back ("escrever pra traz", habilitar um dado vir e ser escrito no registrador)

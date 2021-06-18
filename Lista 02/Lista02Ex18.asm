@@ -16,9 +16,10 @@
 # t1 numero <= 100
 # t2 101
 
-# t3 150 <= numero <= 200
-# t5 149
-# t6 201
+# t1 150 <= numero
+# t2 149
+# t1 numero <= 200
+# t2 201
 
 .text
 
